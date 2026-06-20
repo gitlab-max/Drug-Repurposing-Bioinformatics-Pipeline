@@ -1,0 +1,14 @@
+targets <- data.frame(
+  Gene = c("PDE4B","GABRB1","AQP4"),
+  DEG = c(1,1,1),
+  GO = c(1,1,1),
+  KEGG = c(1,1,0),
+  PGC = c(1,0,0),
+  Druggable = c(1,0,0)
+)
+
+targets$Score <- rowSums(
+  targets[,2:6]
+)
+
+targets
