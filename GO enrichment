@@ -1,0 +1,19 @@
+library(clusterProfiler)
+library(org.Hs.eg.db)
+
+genes <- meta.sig$Gene
+
+ego <- enrichGO(
+  gene = genes,
+  OrgDb = org.Hs.eg.db,
+  keyType = "SYMBOL",
+  ont = "BP",
+  pAdjustMethod = "BH"
+)
+
+write.csv(
+  as.data.frame(ego),
+  "results/GO/GO_BP.csv"
+)
+
+dotplot(ego)
