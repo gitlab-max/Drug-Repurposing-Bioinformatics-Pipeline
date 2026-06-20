@@ -1,0 +1,19 @@
+library(clusterProfiler)
+library(org.Hs.eg.db)
+
+entrez <- bitr(
+  meta.sig$Gene,
+  fromType = "SYMBOL",
+  toType = "ENTREZID",
+  OrgDb = org.Hs.eg.db
+)
+
+ekegg <- enrichKEGG(
+  gene = entrez$ENTREZID,
+  organism = "hsa"
+)
+
+write.csv(
+  as.data.frame(ekegg),
+  "results/KEGG/KEGG.csv"
+)
