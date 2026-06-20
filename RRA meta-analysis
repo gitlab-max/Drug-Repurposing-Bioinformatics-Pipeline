@@ -1,0 +1,20 @@
+library(RobustRankAggreg)
+
+g12649 <- read.csv("results/DEG/GSE12649.csv")
+g21138 <- read.csv("results/DEG/GSE21138.csv")
+g53987 <- read.csv("results/DEG/GSE53987.csv")
+
+ranked.lists <- list(
+  g12649$SYMBOL,
+  g21138$SYMBOL,
+  g53987$SYMBOL
+)
+
+rra <- aggregateRanks(
+  ranked.lists = ranked.lists
+)
+
+write.csv(
+  rra,
+  "results/RRA/RRA_results.csv"
+)
