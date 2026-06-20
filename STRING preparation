@@ -1,0 +1,10 @@
+string.genes <- data.frame(
+  Gene = meta.sig$Gene
+)
+
+write.table(
+  string.genes,
+  "results/STRING/STRING_input.txt",
+  quote = FALSE,
+  row.names = FALSE
+)
