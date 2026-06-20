@@ -1,0 +1,19 @@
+#Example for HG-U133 Plus 2
+
+library(hgu133plus2.db)
+library(AnnotationDbi)
+
+deg$SYMBOL <- mapIds(
+  hgu133plus2.db,
+  keys = rownames(deg),
+  column = "SYMBOL",
+  keytype = "PROBEID",
+  multiVals = "first"
+)
+
+deg <- deg[!is.na(deg$SYMBOL), ]
+
+write.csv(
+  deg,
+  "results/DEG/GSEXXXX_annotated.csv"
+)
