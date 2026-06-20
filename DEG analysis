@@ -1,0 +1,32 @@
+library(affy)
+library(limma)
+
+eset <- rma(rawData)
+
+expr <- exprs(eset)
+
+group <- factor(meta$Group)
+
+design <- model.matrix(~0 + group)
+colnames(design) <- levels(group)
+
+fit <- lmFit(expr, design)
+
+contrast.matrix <- makeContrasts(
+  SCZ-Control,
+  levels = design
+)
+
+fit2 <- contrasts.fit(fit, contrast.matrix)
+fit2 <- eBayes(fit2)
+
+deg <- topTable(
+  fit2,
+  number = Inf,
+  adjust.method = "BH"
+)
+
+write.csv(
+  deg,
+  "results/DEG/GSEXXXX_DEG.csv"
+)
