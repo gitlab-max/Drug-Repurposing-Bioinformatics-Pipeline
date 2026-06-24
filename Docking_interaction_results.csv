@@ -1,0 +1,14 @@
+Rank,Ligand,GlideScore,H-bonds,p–p,Metal,Hydrophobic contacts,Notes
+1,ZINC000100042108_Cilomilast-1,-9.506,none,"Phe446
+phe414",Mg 3.95 Å,Phe446 region,good
+2,perfenazine-5,-9.459,"HIS234 2.56Å 
+THR145 2.15Å","Phe446
+phe414",Mg 2.2 Å,"Leu412
+Phe446 region
+Tyr403 pocket",best
+3,ZINC000000537822_haloperidol-1,-8.877,"none
+(aromatic H-bod:2.62Å)",Phe446,none,"ILE410
+phe414",moderate
+4,ZINC000000592419_Roflumilast-2,-8.874,"GLN443 
+THR345 2.16Å
+(aromatic H-bond: GLU304 2.38Å,2.58Å",Phe446,Mg 4.5Å,Phe446 region,good this is my docking result  
