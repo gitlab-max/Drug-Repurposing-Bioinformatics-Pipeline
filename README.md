@@ -1,190 +1,100 @@
-# Schizophrenia BA46 Meta-Analysis & Drug Repurposing
+# 💊 Drug Repurposing Bioinformatics Pipeline
 
-## Overview
+## End-to-End Computational Drug Discovery Workflow
 
-This project presents a complete bioinformatics pipeline for identifying therapeutic targets in schizophrenia using post-mortem BA46 brain transcriptomic datasets. The workflow integrates differential expression analysis, meta-analysis, functional enrichment, network biology, and drug repurposing via molecular docking.
-
----
-
-## Objectives
-
-* Identify consistently dysregulated genes in schizophrenia BA46 cortex
-* Perform robust meta-analysis across multiple GEO datasets
-* Identify biological pathways and mechanisms involved in disease
-* Construct protein-protein interaction networks
-* Prioritize hub genes and therapeutic targets
-* Evaluate drug repurposing candidates using molecular docking
+This repository presents a reproducible bioinformatics workflow for identifying potential therapeutic targets and repurposable drugs through the integration of transcriptomics, systems biology, and molecular docking.
 
 ---
 
-## Datasets
+## Objective
 
-The following publicly available GEO datasets were used:
+To discover candidate therapeutic compounds by combining:
 
-* GSE12649
-* GSE21138
-* GSE53987
-
-All datasets represent BA46 (prefrontal cortex) tissue samples from schizophrenia patients and controls.
+* Differential gene expression analysis
+* Functional enrichment
+* Network biology
+* Target prioritization
+* Molecular docking
 
 ---
 
 ## Workflow
 
-The analysis pipeline includes:
+RNA-seq / GEO Data
 
-1. Differential Expression Analysis (limma)
-2. Probe annotation and gene mapping
-3. Robust Rank Aggregation (RRA) meta-analysis
-4. GO enrichment analysis (biological processes)
-5. KEGG pathway enrichment analysis
-6. Protein-protein interaction (PPI) network construction (STRING)
-7. Hub gene identification (Cytoscape / cytoHubba)
-8. Target prioritization
-9. Molecular docking and drug repurposing
+↓
 
----
+Differential Expression Analysis
 
-## Key Results
+↓
 
-### Differential Expression
+GO / KEGG / Reactome Enrichment
 
-* Thousands of DEGs identified across datasets
-* Consistent transcriptional dysregulation in neuronal and glial pathways
+↓
 
-### Meta-analysis
+Protein–Protein Interaction Network
 
-* **2,568 significant consistently dysregulated genes**
+↓
 
-### Biological Insights (GO)
+Target Discovery & Prioritization
 
-* Response to hypoxia
-* Gliogenesis
-* Axonogenesis
-* Regulation of cell growth
-* Neurodevelopmental processes
+↓
 
-### KEGG Pathways
+Molecular Docking
 
-* Neuroactive ligand-receptor interaction
-* Dopaminergic synapse
-* PI3K-AKT signaling pathway
-* Synaptic signaling pathways
+↓
 
-### Hub Genes
-
-Key network hubs identified:
-
-* HIF1A
-* MAPK1
-* FOXO1
-* PIK3CB
-* GNB1
-* CDK1
+Drug Candidate Ranking
 
 ---
 
-## Target Prioritization
+## Key Features
 
-Based on multi-layer evidence (DEG + GO + KEGG + PPI + literature):
-
-### Final candidate target:
-
-* **PDE4B**
-
-Rationale:
-
-* Involved in cAMP signaling
-* Highly expressed in brain tissue
-* Druggable enzyme class
-* Linked to psychiatric disorders
+* Transcriptomics-driven drug discovery
+* Network-based target identification
+* Drug repurposing strategy development
+* Reproducible bioinformatics pipeline
+* Multi-step computational workflow
 
 ---
 
-## Molecular Docking Results
+## Tools
 
-Drug repurposing screening against PDE4B identified:
+### Bioinformatics
 
-| Ligand       | Docking Score |
-| ------------ | ------------- |
-| Cilomilast   | -9.506        |
-| Perphenazine | -9.459        |
-| Haloperidol  | -8.877        |
-| Roflumilast  | -8.874        |
-| Thioridazine | -8.579        |
-
----
-
-## Biological Interpretation
-
-The results suggest that schizophrenia involves:
-
-* Dysfunction of inhibitory interneurons
-* Astrocyte dysregulation
-* Synaptic signaling alterations
-* Neurodevelopmental disruption
-* cAMP signaling pathway involvement (PDE4B axis)
-
----
-
-## Tools & Software
-
-* R / Bioconductor
+* DESeq2
 * limma
-* GEOquery
-* RobustRankAggreg
-* clusterProfiler
-* STRING database
+* Bioconductor
+
+### Systems Biology
+
+* STRING
 * Cytoscape
-* Schrödinger Glide (or AutoDock Vina)
+
+### Drug Discovery
+
+* PyMOL
+* Chimera
+* PyRx
+* Schrödinger
 
 ---
 
-## Repository Structure
+## Outputs
 
-```
-data/           Raw GEO datasets
-metadata/       Sample annotations
-scripts/        Analysis pipeline scripts
-results/        Output tables and DEG lists
-figures/        Plots and network visualizations
-```
+* Differentially expressed genes
+* Enriched biological pathways
+* Hub genes and network targets
+* Prioritized therapeutic targets
+* Docking scores and candidate compounds
 
 ---
 
-## Reproducibility
+## Applications
 
-All scripts are written in R and are fully reproducible. Each step of the pipeline is modular and can be executed independently.
+* Drug Repurposing
+* Target Discovery
+* Biomarker Identification
+* Precision Medicine
+* Translational Research
 
----
-
-## Future Work
-
-* RNA-seq validation
-* Single-cell transcriptomics integration
-* Experimental validation (PDE4B inhibition assays)
-* Expanded drug repurposing screening
-* Machine learning-based biomarker discovery
-
----
-
-## Author
-
-Independent Bioinformatics Researcher
-
-Expertise:
-
-* Transcriptomics
-* RNA-seq analysis
-* Meta-analysis
-* Network biology
-* Drug repurposing
-* Molecular docking
-
----
-
-## Contact
-
-GitHub: [your-profile]
-LinkedIn: [your-link]
-Email: [your-email]
